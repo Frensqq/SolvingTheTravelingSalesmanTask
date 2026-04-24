@@ -8,19 +8,19 @@ namespace SolvingTheTravelingSalesmanTask
 {
     internal class ArrayAction
     {
-        public static double[][] TrimArray(int rowToRemove, int columnToRemove, int[][] originalArray)
+        public int[][] TrimArray(int rowToRemove, int columnToRemove, int[][] originalArray)
         {
             int rows = originalArray.GetLength(0);
             int cols = originalArray.GetLength(1);
 
-            double[][] result = new double[rows-1][];
+            int[][] result = new int[rows-1][];
 
             for (int i = 0,j = 0; i < rows; i++) { 
             
                 if (i == rowToRemove)
                     continue;
 
-                result[i] = new double[cols - 1];
+                result[i] = new int[cols - 1];
 
                 for (int k = 0, u = 0; k < cols; k++)
                 {
@@ -42,8 +42,8 @@ namespace SolvingTheTravelingSalesmanTask
             return result;
         }
 
-        public double SumArray(double[] array) { 
-            double sum = 0;
+        public int SumArray(int[] array) {
+            int sum = 0;
             foreach (var item in array)
             {
                 if (item != -1) 

@@ -8,29 +8,42 @@ namespace SolvingTheTravelingSalesmanTask
 {
     internal class Inputs
     {
-        public double[][] Input() {
+        public int[][] Matrix() {
             Console.Write("Введите кол-во пунктов: ");
             int size = Convert.ToInt32(Console.ReadLine());
 
-            double[][] matix = new double[size][];
+            int[][] matrix = new int[size][];
 
             for (int i = 0; i < size; i++)
             {
-                matix[i] = new double[size];
+                matrix[i] = new int[size];
                 for (int j = 0; j < size; j++)
                 {
                     if (i == j)
                     {
-                        matix[i][j] = -1;
+                        matrix[i][j] = -1;
                     }
                     else
                     {
                         Console.Write("[" + (i + 1) + ";" + (j + 1) + "] = ");
-                        matix[i][j] = Convert.ToDouble(Console.ReadLine());
+                        matrix[i][j] = Convert.ToInt32(Console.ReadLine());
                     }
                 }
             }
-            return matix;
+            return matrix;
+        }
+
+        public void PrintMatrix(int[][] matrix)
+        {
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    Console.Write($"{matrix[i][j],3} + |");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Конец\n");
         }
     }
 }

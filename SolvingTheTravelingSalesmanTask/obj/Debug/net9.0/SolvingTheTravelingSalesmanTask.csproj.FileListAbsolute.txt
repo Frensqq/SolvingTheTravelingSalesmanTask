@@ -1,0 +1,15 @@
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\bin\Debug\net9.0\SolvingTheTravelingSalesmanTask.exe
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\bin\Debug\net9.0\SolvingTheTravelingSalesmanTask.deps.json
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\bin\Debug\net9.0\SolvingTheTravelingSalesmanTask.runtimeconfig.json
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\bin\Debug\net9.0\SolvingTheTravelingSalesmanTask.dll
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\bin\Debug\net9.0\SolvingTheTravelingSalesmanTask.pdb
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\SolvingTheTravelingSalesmanTask.GeneratedMSBuildEditorConfig.editorconfig
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\SolvingTheTravelingSalesmanTask.AssemblyInfoInputs.cache
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\SolvingTheTravelingSalesmanTask.AssemblyInfo.cs
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\SolvingTheTravelingSalesmanTask.csproj.CoreCompileInputs.cache
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\SolvingTheTravelingSalesmanTask.sourcelink.json
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\SolvingTheTravelingSalesmanTask.dll
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\refint\SolvingTheTravelingSalesmanTask.dll
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\SolvingTheTravelingSalesmanTask.pdb
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\SolvingTheTravelingSalesmanTask.genruntimeconfig.cache
+W:\Colledge\02.03\SolvingTheTravelingSalesmanTask\SolvingTheTravelingSalesmanTask\obj\Debug\net9.0\ref\SolvingTheTravelingSalesmanTask.dll
