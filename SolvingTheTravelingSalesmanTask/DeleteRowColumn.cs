@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SolvingTheTravelingSalesmanTask
+{
+    internal class DeleteRowColumn
+    {
+        public static double[][] TrimArray(int rowToRemove, int columnToRemove, int[][] originalArray)
+        {
+            int rows = originalArray.GetLength(0);
+            int cols = originalArray.GetLength(1);
+
+            double[][] result = new double[rows-1][];
+
+            for (int i = 0,j = 0; i < rows; i++) { 
+            
+                if (i == rowToRemove)
+                    continue;
+
+                result[i] = new double[cols - 1];
+
+                for (int k = 0, u = 0; k < cols; k++)
+                {
+                    if (k == columnToRemove)
+                        continue;
+
+                    if (i == columnToRemove && k == rowToRemove)
+                    {
+                        result[j][u] = -1;
+                    }
+                    else
+                    {
+                        result[j][u] = originalArray[i][k];
+                    }
+                    u++;
+                }
+                j++;
+            }
+            return result;
+        }
+
+    }
+}
