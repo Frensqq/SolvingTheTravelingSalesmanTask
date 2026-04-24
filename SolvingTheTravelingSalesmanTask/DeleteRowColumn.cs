@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SolvingTheTravelingSalesmanTask
 {
-    internal class DeleteRowColumn
+    internal class ArrayAction
     {
         public static double[][] TrimArray(int rowToRemove, int columnToRemove, int[][] originalArray)
         {
@@ -40,6 +40,18 @@ namespace SolvingTheTravelingSalesmanTask
                 j++;
             }
             return result;
+        }
+
+        public double SumArray(double[] array) { 
+            double sum = 0;
+            foreach (var item in array)
+            {
+                if (item != -1) 
+                { 
+                    sum += item;
+                }
+            }
+            return sum;
         }
 
     }

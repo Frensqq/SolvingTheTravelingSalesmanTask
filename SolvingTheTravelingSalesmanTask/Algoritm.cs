@@ -65,4 +65,13 @@ public class Algoritm()
         return cell;
     }
 
+    public double lowerLimit(double oldLowerlimit, double[] minRow, double[] minColumn)
+    {
+        ArrayAction action = new ArrayAction();
+        double summMinRow = action.SumArray(minRow);
+        double summMinColumn = action.SumArray(minColumn);
+
+        return oldLowerlimit + summMinRow + summMinColumn;
+
+    }
 }
