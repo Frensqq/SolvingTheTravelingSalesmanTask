@@ -72,6 +72,5 @@ public class Algoritm()
         double summMinColumn = action.SumArray(minColumn);
 
         return oldLowerlimit + summMinRow + summMinColumn;
-
     }
 }

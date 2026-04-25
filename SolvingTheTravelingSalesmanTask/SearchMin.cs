@@ -50,6 +50,8 @@ namespace SolvingTheTravelingSalesmanTask
             }
             return result;
         }
+
+        
     }
 
 
