@@ -13,17 +13,15 @@ namespace SolvingTheTravelingSalesmanTask
             int[] result = new int[matrix.Length];
             for (int i = 0; i < matrix.Length; i++)
             {
+                int min = int.MaxValue;
                 for (int j = 0; j < matrix[i].Length; j++)
                 {
-                    int min = int.MaxValue;
-                    if (matrix[i][j] != -1)
+                    if (matrix[i][j] != -1 && matrix[i][j] < min)
                     {
-                        if (matrix[i][j] < min)
-                        {
-                            min = matrix[i][j];
-                        }
+                        min = matrix[i][j];
                     }
-                    result[i] = min;
+                    if(min == int.MaxValue) result[i] = 0;
+                    else result[i] = min;
                 }
             }
             return result;
@@ -35,18 +33,16 @@ namespace SolvingTheTravelingSalesmanTask
             int[] result = new int[matrix.Length];
             for (int j = 0; j < matrix.Length; j++)
             {
-                for (int i = 0; i < matrix[j].Length; i++)
+                int min = int.MaxValue;
+                for (int i = 0; i < matrix.Length; i++)
                 {
-                    int min = int.MaxValue;
-                    if (matrix[i][j] != -1)
+                    if (matrix[i][j] != -1 && matrix[i][j] < min)
                     {
-                        if (matrix[i][j] < min)
-                        {
-                            min = matrix[i][j];
-                        }
+                        min = matrix[i][j];
                     }
-                    result[j] = min;
                 }
+                if (min == int.MaxValue) result[j] = 0;
+                else result[j] = min;
             }
             return result;
         }

@@ -10,34 +10,26 @@ namespace SolvingTheTravelingSalesmanTask
     {
         public int[][] TrimArray(int rowToRemove, int columnToRemove, int[][] originalArray)
         {
-            int rows = originalArray.GetLength(0);
-            int cols = originalArray.GetLength(1);
+            int rows = originalArray.Length;
+            int cols = originalArray[0].Length;
 
-            int[][] result = new int[rows-1][];
+            int[][] result = new int[rows - 1][];
+            int newRow = 0;
 
-            for (int i = 0,j = 0; i < rows; i++) { 
-            
-                if (i == rowToRemove)
-                    continue;
+            for (int i = 0; i < rows; i++)
+            {
+                if (i == rowToRemove) continue;
 
-                result[i] = new int[cols - 1];
+                result[newRow] = new int[cols - 1];
+                int newCol = 0;
 
-                for (int k = 0, u = 0; k < cols; k++)
+                for (int j = 0; j < cols; j++)
                 {
-                    if (k == columnToRemove)
-                        continue;
-
-                    if (i == columnToRemove && k == rowToRemove)
-                    {
-                        result[j][u] = -1;
-                    }
-                    else
-                    {
-                        result[j][u] = originalArray[i][k];
-                    }
-                    u++;
+                    if (j == columnToRemove) continue;
+                    result[newRow][newCol] = originalArray[i][j];
+                    newCol++;
                 }
-                j++;
+                newRow++;
             }
             return result;
         }
@@ -46,7 +38,7 @@ namespace SolvingTheTravelingSalesmanTask
             int sum = 0;
             foreach (var item in array)
             {
-                if (item != -1) 
+                if (item != -1 && item != int.MaxValue) 
                 { 
                     sum += item;
                 }
@@ -54,5 +46,12 @@ namespace SolvingTheTravelingSalesmanTask
             return sum;
         }
 
+        public void BlockReversePath(int[][] matrix, int from, int to)
+        {
+            if (from < matrix.Length && to < matrix.Length)
+            {
+                matrix[to][from] = -1;
+            }
+        }
     }
 }
