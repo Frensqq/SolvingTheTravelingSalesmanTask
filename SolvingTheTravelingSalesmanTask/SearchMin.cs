@@ -8,14 +8,14 @@ namespace SolvingTheTravelingSalesmanTask
 {
     internal class SearchMin
     {
-        public double[] MinRow(double[][] matrix)
+        public int[] MinRow(int[][] matrix)
         {
-            double[] result = new double[matrix.Length];
+            int[] result = new int[matrix.Length];
             for (int i = 0; i < matrix.Length; i++)
             {
                 for (int j = 0; j < matrix[i].Length; j++)
                 {
-                    double min = double.MaxValue;
+                    int min = int.MaxValue;
                     if (matrix[i][j] != -1)
                     {
                         if (matrix[i][j] < min)
@@ -30,14 +30,14 @@ namespace SolvingTheTravelingSalesmanTask
         }
 
 
-        public double[] MinColumn(double[][] matrix)
+        public int[] MinColumn(int[][] matrix)
         {
-            double[] result = new double[matrix.Length];
+            int[] result = new int[matrix.Length];
             for (int j = 0; j < matrix.Length; j++)
             {
                 for (int i = 0; i < matrix[j].Length; i++)
                 {
-                    double min = double.MaxValue;
+                    int min = int.MaxValue;
                     if (matrix[i][j] != -1)
                     {
                         if (matrix[i][j] < min)

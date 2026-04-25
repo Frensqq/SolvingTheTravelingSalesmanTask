@@ -8,7 +8,7 @@ namespace SolvingTheTravelingSalesmanTask
 {
     internal class Reduction
     {
-        public void Row(double[] min, double[][] matrix)
+        public void Row(int[] min, int[][] matrix)
         {
             for (int i = 0; i < matrix.Length; i++)
             {
@@ -22,7 +22,7 @@ namespace SolvingTheTravelingSalesmanTask
             }
         }
 
-        public void Column(double[] min, double[][] matrix) {
+        public void Column(int[] min, int[][] matrix) {
             for (int j = 0; j < matrix.Length; j++)
             {
                 for (int i = 0; i < matrix[j].Length; i++)

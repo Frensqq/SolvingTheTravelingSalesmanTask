@@ -10,12 +10,12 @@ namespace SolvingTheTravelingSalesmanTask;
 
 public class Algoritm()
 {
-    public double[][] searchZeroCells(double[][] matrix)
+    public int[][] searchZeroCells(int[][] matrix)
     {
-        double[][] ratings = new double[matrix.Length][];
+        int[][] ratings = new int[matrix.Length][];
         for (int i = 0; i < matrix.Length; i++)
         {
-            ratings[i] = new double[matrix[i].Length];
+            ratings[i] = new int[matrix[i].Length];
             for(int j = 0; j < matrix[i].Length; j++)
             {
                 if (matrix[i][j] == 0)
@@ -26,9 +26,9 @@ public class Algoritm()
         }
         return ratings;
     }
-    public double ratingZeroCells(double[][] matrix, int zeroI, int zeroJ)
+    public int ratingZeroCells(int[][] matrix, int zeroI, int zeroJ)
     {
-        double minI = 0;
+        int minI = 0;
         for(int i = 0; i < matrix.Length;)
         {
             if(matrix[zeroI][i] < minI && matrix[i][zeroJ] != -1)
@@ -37,7 +37,7 @@ public class Algoritm()
             }
         }
 
-        double minJ = 0;
+        int minJ = 0;
         for (int i = 0; i < matrix.Length;)
         {
             if (matrix[i][zeroJ] < minI && matrix[i][zeroJ]!=-1)
@@ -48,9 +48,9 @@ public class Algoritm()
         return minI + minJ;
     }
 
-    public double[] SearchMaxRating(double[][] rating)
+    public int[] searchMaxRating(int[][] rating)
     {
-        double[] cell = new double[3];
+        int[] cell = new int[3];
         for (int i = 0; i < rating.Length;i++) { 
             for (int j = 0; j < rating[i].Length; j++)
             {
@@ -65,11 +65,11 @@ public class Algoritm()
         return cell;
     }
 
-    public double lowerLimit(double oldLowerlimit, double[] minRow, double[] minColumn)
+    public int lowerLimit(int oldLowerlimit, int[] minRow, int[] minColumn)
     {
         ArrayAction action = new ArrayAction();
-        double summMinRow = action.SumArray(minRow);
-        double summMinColumn = action.SumArray(minColumn);
+        int summMinRow = action.SumArray(minRow);
+        int summMinColumn = action.SumArray(minColumn);
 
         return oldLowerlimit + summMinRow + summMinColumn;
     }
