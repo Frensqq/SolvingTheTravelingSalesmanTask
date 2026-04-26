@@ -53,13 +53,17 @@ H += matrix[1][1];
 path[indexPath][0] = matrix[1][0];
 path[indexPath][1] = matrix[0][1];
 
-foreach (var item in path)
+
+int[] rezult = algoritm.BuildPath(path);
+for (int i = 0; i < rezult.Length; i++)
 {
-    Console.WriteLine(item[0] + " -> " + item[1]);
+    if (i != rezult.Length - 1)
+    {
+        Console.Write(rezult[i] + " -> ");
+    }
+    else {
+        Console.WriteLine(rezult[i] + "  ");
+    }
 }
-
-
-inputs.PrintArray(algoritm.BuildPath(path));
-
 
 Console.WriteLine(H);

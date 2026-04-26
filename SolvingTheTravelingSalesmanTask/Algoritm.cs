@@ -74,7 +74,7 @@ public class Algoritm()
         List<int> result = new List<int>();
         int current = pairs[0][1]; 
 
-        for (int i = 0; i < pairs.Length; i++)
+        for (int i = 0; i <= pairs.Length; i++)
         {
             result.Add(current);
 
