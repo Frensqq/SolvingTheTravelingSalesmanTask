@@ -12,8 +12,8 @@ namespace SolvingTheTravelingSalesmanTask
         {
             int rows = originalArray.Length;
             int cols = originalArray[0].Length;
-
             int[][] result = new int[rows - 1][];
+
             int newRow = 0;
 
             for (int i = 0; i < rows; i++)
@@ -30,7 +30,7 @@ namespace SolvingTheTravelingSalesmanTask
                     newCol++;
                 }
                 newRow++;
-            }
+            } 
             return result;
         }
 
@@ -46,12 +46,40 @@ namespace SolvingTheTravelingSalesmanTask
             return sum;
         }
 
-        public void BlockReversePath(int[][] matrix, int from, int to)
+        public int[][] initMatrix(int lenght, int width)
         {
-            if (from < matrix.Length && to < matrix.Length)
+            int[][] result = new int[lenght][];
+            for (int i = 0; i < lenght; i++)
             {
-                matrix[to][from] = -1;
+                result[i] = new int[width];
             }
+            return result;
+        }
+
+
+
+        public int[][] BlockReversePath(int[][] matrix, int[] cell)
+        {
+            int globalI = -1;
+            int globalJ = -1;
+            for (int i = 0; i< matrix.Length; i++)
+            {
+                if(matrix[i][0] == cell[2]) globalI = i;
+            }
+            for (int J = 0; J < matrix.Length; J++)
+            {
+                if (matrix[0][J] == cell[1]) globalJ = J;
+            }
+
+
+
+            if (cell[2] < matrix.Length && cell[1] < matrix.Length)
+            {
+                if (globalI != -1 && globalJ != -1) {
+                    matrix[globalI][globalJ] = -1;
+                }
+            }
+            return matrix;
         }
     }
 }

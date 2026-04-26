@@ -10,26 +10,26 @@ namespace SolvingTheTravelingSalesmanTask
     {
         public void Row(int[] min, int[][] matrix)
         {
-            for (int i = 0; i < matrix.Length; i++)
+            for (int i = 1; i < matrix.Length; i++)
             {
-                for(int j = 0; j < matrix[i].Length; j++)
+                for(int j = 1; j < matrix[i].Length; j++)
                 {
                     if (matrix[i][j] != -1)
                     {
-                        matrix[i][j] -= min[i];
+                        matrix[i][j] -= min[i-1];
                     }
                 }
             }
         }
 
         public void Column(int[] min, int[][] matrix) {
-            for (int j = 0; j < matrix.Length; j++)
+            for (int j = 1; j < matrix.Length; j++)
             {
-                for (int i = 0; i < matrix[j].Length; i++)
+                for (int i = 1; i < matrix[j].Length; i++)
                 {
                     if (matrix[i][j] != -1)
                     {
-                        matrix[i][j] -= min[j];
+                        matrix[i][j] -= min[j-1];
                     }
                 }
             }

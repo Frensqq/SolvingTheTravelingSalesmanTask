@@ -12,16 +12,23 @@ namespace SolvingTheTravelingSalesmanTask
             Console.Write("Введите кол-во пунктов: ");
             int size = Convert.ToInt32(Console.ReadLine());
 
-            int[][] matrix = new int[size][];
+            int[][] matrix = new int[size+1][];
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < size+1; i++)
             {
-                matrix[i] = new int[size];
+                matrix[i] = new int[size+1];
           
-                for (int j = 0; j < size; j++)
+                for (int j = 0; j < size + 1; j++)
                 {
-                    
-                        if (i == j)
+                    if(i == 0)
+                    {
+                        matrix[i][j] = j;
+                    }
+                    else if (j == 0)
+                    {
+                        matrix[i][j] = i;
+                    }
+                        else if (i == j)
                         {
                             matrix[i][j] = -1;
                         }
@@ -69,7 +76,7 @@ namespace SolvingTheTravelingSalesmanTask
             {
                 for (int j = 0; j < matrix[i].Length; j++)
                 {
-                    if (matrix[i][j] == -1)
+                    if (matrix[i][j] == -1 || matrix[i][j] == int.MaxValue)
                     {
                         Console.Write($"  M|");
                     }
@@ -78,6 +85,15 @@ namespace SolvingTheTravelingSalesmanTask
                     }
                 }
                 Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+        }
+
+        public void PrintArray(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i]+" ");
             }
             Console.WriteLine("\n");
         }

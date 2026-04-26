@@ -10,18 +10,18 @@ namespace SolvingTheTravelingSalesmanTask
     {
         public int[] MinRow(int[][] matrix)
         {
-            int[] result = new int[matrix.Length];
-            for (int i = 0; i < matrix.Length; i++)
+            int[] result = new int[matrix.Length-1];
+            for (int i = 1; i < matrix.Length; i++)
             {
                 int min = int.MaxValue;
-                for (int j = 0; j < matrix[i].Length; j++)
+                for (int j = 1; j < matrix[i].Length; j++)
                 {
                     if (matrix[i][j] != -1 && matrix[i][j] < min)
                     {
                         min = matrix[i][j];
                     }
-                    if(min == int.MaxValue) result[i] = 0;
-                    else result[i] = min;
+                    if(min == int.MaxValue) result[i-1] = 0;
+                    else result[i-1] = min;
                 }
             }
             return result;
@@ -30,19 +30,19 @@ namespace SolvingTheTravelingSalesmanTask
 
         public int[] MinColumn(int[][] matrix)
         {
-            int[] result = new int[matrix.Length];
-            for (int j = 0; j < matrix.Length; j++)
+            int[] result = new int[matrix.Length-1];
+            for (int j = 1; j < matrix.Length; j++)
             {
                 int min = int.MaxValue;
-                for (int i = 0; i < matrix.Length; i++)
+                for (int i = 1; i < matrix.Length; i++)
                 {
                     if (matrix[i][j] != -1 && matrix[i][j] < min)
                     {
                         min = matrix[i][j];
                     }
                 }
-                if (min == int.MaxValue) result[j] = 0;
-                else result[j] = min;
+                if (min == int.MaxValue) result[j-1] = 0;
+                else result[j-1] = min;
             }
             return result;
         }
