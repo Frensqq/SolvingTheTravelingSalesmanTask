@@ -1,45 +1,92 @@
-<<<<<<< HEAD
-﻿
-=======
-﻿using SolvingTheTravelingSalesmanTask;
+using SolvingTheTravelingSalesmanTask;
+using System;
+using System.Collections.Generic;
 
-
-Inputs inputs = new Inputs();
-int[][] matrix = inputs.Matrix();
-
-int[][] result = new int[matrix.Length][];
-
-int H = 0;
-
-for(int i = 0; matrix.Length > 0; i++)
+class Program
 {
-    Console.WriteLine($"\n-------{i}-------");
-    SearchMin searchMin = new SearchMin();
-    Reduction reduction = new Reduction();
-    int[] minColumn = searchMin.MinColumn(matrix);
-    reduction.Column(minColumn, matrix);
-    inputs.PrintMatrix(matrix);
+    static void Main()
+    {
+        Algoritm algoritm = new Algoritm();
+        Inputs inputs = new Inputs();
+        int[][] matrix = inputs.Matrix();
+        int[][] roadMatrix = inputs.RoadMatrix(matrix);
+        inputs.PrintMatrix(roadMatrix);
+        
 
-    int[] minRow = searchMin.MinRow(matrix);
-    reduction.Row(minRow, matrix);
-    inputs.PrintMatrix(matrix);
+        int H = 0;
+        List<Tuple<int, int>> path = new List<Tuple<int, int>>();
 
-    ArrayAction arrayAction = new ArrayAction();
-    Algoritm algoritm = new Algoritm();
-    H += algoritm.lowerLimit(H, minRow, minColumn);
+        Console.WriteLine("\n=== Начало алгоритма ===\n");
 
-    
-    int[][] ratingMatrix = algoritm.searchZeroCells(matrix);
-    int[] rating = algoritm.searchMaxRating(ratingMatrix);
-    inputs.PrintMatrix(ratingMatrix);
+        while (matrix.Length > 2)
+        { 
+            SearchMin searchMin = new SearchMin();
+            Reduction reduction = new Reduction();
+            ArrayAction arrayAction = new ArrayAction();
 
-    arrayAction.TrimArray(rating[1], rating[2], matrix);
-    inputs.PrintMatrix(matrix);
+            int[] minRow = searchMin.MinRow(matrix);
+            reduction.Row(minRow, matrix);
 
-    result[i] = new int[2];
-    result[i][0] = rating[1] + 1;
-    result[i][1] = rating[2] + 1;
-    Console.WriteLine("--------------\n");
+            int[] minColumn = searchMin.MinColumn(matrix);
+            reduction.Column(minColumn, matrix);
+
+            H = algoritm.lowerLimit(H, minRow, minColumn);
+
+            inputs.PrintMatrix(matrix);
+            Console.WriteLine($"Текущая нижняя граница: {H}");
+
+            int[][] ratingMatrix = algoritm.searchZeroCells(matrix);
+            int[] bestEdge = algoritm.searchMaxRating(ratingMatrix, roadMatrix);
+
+            if (bestEdge[1] == -1 || bestEdge[2] == -1) break;
+
+            Console.WriteLine($"Выбрано ребро: {bestEdge[3]} -> {bestEdge[4]} (оценка: {bestEdge[0]})");
+            path.Add(new Tuple<int, int>(bestEdge[1], bestEdge[2]));
+
+            arrayAction.BlockReversePath(matrix, bestEdge[1], bestEdge[2]);
+
+            matrix = arrayAction.TrimArray(bestEdge[1], bestEdge[2], matrix);
+            matrix = arrayAction.TrimArray(bestEdge[3], bestEdge[4], ratingMatrix);
+
+            inputs.PrintMatrix(matrix);
+        }
+
+        if (matrix.Length == 2)
+        {
+            int row1 = 0, row2 = 1;
+            int col1 = -1, col2 = -1;
+
+            for (int j = 0; j < 2; j++)
+            {
+                if (matrix[0][j] != -1) col1 = j;
+                if (matrix[1][j] != -1) col2 = j;
+            }
+
+            if (col1 != -1)
+                path.Add(new Tuple<int, int>(row1, col1));
+            if (col2 != -1 && col2 != col1)
+                path.Add(new Tuple<int, int>(row2, col2));
+
+            SearchMin searchMin = new SearchMin();
+            int[] minRow = searchMin.MinRow(matrix);
+            int[] minColumn = searchMin.MinColumn(matrix);
+            ArrayAction arrayAction = new ArrayAction();
+            
+            H = algoritm.lowerLimit(H, minRow, minColumn);
+        }
+
+        Console.WriteLine("\n=== Результат ===");
+        Console.WriteLine($"Минимальная длина маршрута: {H}");
+
+        List<int> route = algoritm.BuildRoute(path);
+        Console.Write("Маршрут: ");
+        for (int i = 0; i < route.Count; i++)
+        {
+            Console.Write(route[i] + 1);
+            if (i < route.Count - 1) Console.Write(" -> ");
+        }
+        Console.WriteLine();
+    }
+
+
 }
-Console.WriteLine(result);
->>>>>>> 368415e51c976f664613f49b2b2863c4081d3c12
